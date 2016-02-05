@@ -22,6 +22,7 @@
 						<th>Description</th>
 						<th>Gpio port</th>
 						<th>Activé</th>
+						<th>Commande</th>
 						<th colspan="3"></th>
 					</tr>
 				</thead>
@@ -32,7 +33,32 @@
 						<td><%= device.name %></td>
 						<td><%= device.description %></td>
 						<td><%= device.gpio_port %></td>
-						<td><%= device.activated %></td>
+						<td><%= device.activated %>
+							
+						</td>
+						<td>
+							<% if device.activated %>
+							<%= form_for(device, url: device_path(device, :from_index => "true"), html: {method: "patch"} ) do |f| %>
+								
+							    <%= f.hidden_field :activated, value: false %>
+							  <div class="actions text-center">
+							    <%= f.submit "Désactiver", class: "btn btn-danger btn-sm " %>
+							  </div>
+							<% end %>
+							<% else %>
+							
+							<%= form_for(device, url: device_path(device, :from_index => "true"), html: {method: "patch"} ) do |f| %>
+							    <%= f.hidden_field :activated, value: true %>
+							  <div class="actions text-center">
+							    <%= f.submit "Activer", class: "btn btn-success btn-sm " %>
+							  </div>
+							<% end %>
+							
+							<% end %>
+
+							
+							
+						</td>
 						<td><%= link_to 'Voir', device %></td>
 						<td><%= link_to 'Modifier', edit_device_path(device) %></td>
 						<td><%= link_to 'Supprimer', device, method: :delete, data: { confirm: 'Are you sure?' } %></td>
