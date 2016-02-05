@@ -1,0 +1,22 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 class="text-center page-header">Device : <%= @device.name%> : Modification</h1>
+
+			<div class="well">
+				Modification d'un device
+			</div>
+
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+
+			<%= render 'form' %>
+	<hr />
+			<%= link_to 'Voir', @device %> |
+			<%= link_to 'Index ses devices', devices_path %>
+		</div>
+	</div>
+</div>

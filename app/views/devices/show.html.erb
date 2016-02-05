@@ -1,0 +1,40 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 class="text-center page-header">Device <%= @device.name%></h1>
+
+			<div class="well">
+				Information sur le device
+			</div>
+
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<p>
+				<strong>Name:</strong>
+				<%= @device.name %>
+			</p>
+
+			<p>
+				<strong>Description:</strong>
+				<%= @device.description %>
+			</p>
+
+			<p>
+				<strong>Gpio port:</strong>
+				<%= @device.gpio_port %>
+			</p>
+
+			<p>
+				<strong>Activated:</strong>
+				<%= @device.activated %>
+			</p>
+
+			<%= link_to 'Edit', edit_device_path(@device) %> |
+			<%= link_to 'Back', devices_path %>
+
+		</div>
+	</div>
+</div>

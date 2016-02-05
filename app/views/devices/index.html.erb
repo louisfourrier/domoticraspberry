@@ -1,0 +1,49 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 class="text-center page-header">Liste de Devices WEB</h1>
+
+			<div class="well">
+				Ajoutez ici un device et dirigez le depuis le WEB
+			</div>
+			
+			<%= link_to 'Nouveau Device', new_device_path, class: "btn btn-lg btn-success" %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+
+			
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Nom du device</th>
+						<th>Description</th>
+						<th>Gpio port</th>
+						<th>Activé</th>
+						<th colspan="3"></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<% @devices.each do |device| %>
+					<tr>
+						<td><%= device.name %></td>
+						<td><%= device.description %></td>
+						<td><%= device.gpio_port %></td>
+						<td><%= device.activated %></td>
+						<td><%= link_to 'Voir', device %></td>
+						<td><%= link_to 'Modifier', edit_device_path(device) %></td>
+						<td><%= link_to 'Supprimer', device, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+
+			<br>
+
+		</div>
+	</div>
+</div>
+
